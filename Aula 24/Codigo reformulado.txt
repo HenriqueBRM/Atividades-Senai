@@ -1,0 +1,84 @@
+#define pinLEDVermelho 13
+#define pinLEDAmarelo 12
+#define pinLEDVerde 8
+#define tempoLEDVermelho 5000
+#define tempoLEDAmarelo 2000
+#define tempoLEDVerde 3000
+#define pinLEDVerde2 7
+#define pinLEDAmarelo2 4
+#define pinLEDVermelho2 2
+#define pinLEDVerde3 3
+#define pinLEDVermelho3 5
+#define tempoLEDPiscante 200
+#define pinLEDVerde4 6
+#define pinLEDVermelho4 9
+
+void setup() 
+{
+  pinMode(pinLEDVerde, OUTPUT);
+  pinMode(pinLEDVerde2, OUTPUT);
+  pinMode(pinLEDVerde3, OUTPUT);
+  pinMode(pinLEDVermelho, OUTPUT);
+  pinMode(pinLEDVermelho2, OUTPUT);
+  pinMode(pinLEDVermelho3, OUTPUT);
+  pinMode(pinLEDAmarelo, OUTPUT);
+  pinMode(pinLEDAmarelo2, OUTPUT);
+  pinMode(pinLEDVerde4, OUTPUT);
+  pinMode(pinLEDVermelho4,OUTPUT);
+}
+void loop()
+{
+  digitalWrite(pinLEDVermelho, HIGH);
+  digitalWrite(pinLEDVerde2, HIGH); 
+  digitalWrite(pinLEDVerde3,HIGH);
+  digitalWrite(pinLEDVermelho4,HIGH);
+  delay(tempoLEDVermelho); 
+  delay(tempoLEDVerde);
+  delay(tempoLEDPiscante);
+  delay(tempoLEDPiscante);
+  digitalWrite(pinLEDVerde3, LOW);
+  digitalWrite(pinLEDVermelho4, LOW);
+  delay(tempoLEDPiscante); 
+  delay(tempoLEDPiscante);
+  digitalWrite(pinLEDVerde3, HIGH) ;
+  digitalWrite(pinLEDVermelho4, HIGH);
+  delay(tempoLEDPiscante);
+  delay(tempoLEDPiscante);
+  digitalWrite(pinLEDVerde3, LOW);
+  digitalWrite(pinLEDVermelho4,LOW);
+  delay(tempoLEDPiscante);
+  delay(tempoLEDPiscante);
+  digitalWrite(pinLEDVerde2, LOW);
+  digitalWrite(pinLEDAmarelo2, HIGH);
+  delay(tempoLEDAmarelo);
+  digitalWrite(pinLEDVermelho, LOW); 
+  digitalWrite(pinLEDAmarelo2, LOW);
+    
+ 
+  
+  digitalWrite(pinLEDVermelho2, HIGH); 
+  digitalWrite(pinLEDVerde, HIGH); 
+  digitalWrite(pinLEDVermelho3, HIGH);
+  digitalWrite(pinLEDVerde4,HIGH);
+  delay(tempoLEDVermelho);  
+  delay(tempoLEDVerde); 
+  delay(tempoLEDPiscante);
+  delay(tempoLEDPiscante);
+  digitalWrite(pinLEDVermelho3, LOW); 
+  digitalWrite(pinLEDVerde4,LOW);
+  delay(tempoLEDPiscante); 
+  delay(tempoLEDPiscante);
+  digitalWrite(pinLEDVermelho3, HIGH); 
+  digitalWrite(pinLEDVerde4,HIGH);
+  delay(tempoLEDPiscante); 
+  delay(tempoLEDPiscante);
+  digitalWrite(pinLEDVermelho3, LOW);
+  digitalWrite(pinLEDVerde4,LOW);
+  delay(tempoLEDPiscante);
+  delay(tempoLEDPiscante);
+  digitalWrite(pinLEDVerde, LOW); 
+  digitalWrite(pinLEDAmarelo,HIGH); 
+  delay(tempoLEDAmarelo);
+  digitalWrite(pinLEDVermelho2, LOW); 
+  digitalWrite(pinLEDAmarelo,LOW);
+}
