@@ -1,0 +1,35 @@
+// C++ code
+
+//****Exercicio 8 ****//
+
+int valor1=2250;
+int valor2=1890;
+
+//****Exercicio 9 ****//
+int nota1=10;
+int nota2=10;
+int nota3=10;
+int nota4=10;
+float media=(nota1+nota2+nota3+nota4)/4;
+
+
+void setup()
+{
+  Serial.begin(9600);
+  
+  //****Exercicio 9 ****//
+  if (media>=7){Serial.print(media);Serial.println(" Aprovado");
+               }else if(media>=5){Serial.print(media);Serial.println(" Recuperacao");
+                                 }else{Serial.print(media);Serial.println(" Reprovado");}
+
+
+ //****Exercicio 8 ****//
+ if (valor1>valor2){Serial.print("O valor ");Serial.print(valor1);Serial.print(" eh maior");
+                    }else{Serial.print("O valor ");Serial.print(valor2);Serial.print(" eh maior");}
+
+}
+
+void loop()
+{
+  
+}

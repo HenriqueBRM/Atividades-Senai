@@ -1,0 +1,72 @@
+float altura = 1.65;
+float peso = 100;
+ float resultado1;
+
+/*void setup()
+{
+ Serial.begin(9600);
+  resultado1= peso/sq(altura);
+  
+  if(resultado1 >= 40)
+  {
+    Serial.println("Voce esta: Planeta ou Ciba");
+  }
+  else if(resultado1 > 35)
+  {
+    Serial.println("Voce esta: Chega de pantufa Snorlax ou Monstro");
+  }
+  else if(resultado1 > 30)
+  {
+    Serial.println("Voce esta: Calma Um Bauducco no pedaco ou Lenda");
+                      }
+  else if(resultado1 > 25){
+    Serial.println("Voce e: Gordo ou Fortinho");
+                      }
+  else if(resultado1 > 18.5) {
+    Serial.println("Voce esta: Normal");
+                      }
+  else if(resultado1 > 17) {
+    Serial.println("Voce esta: Magro");
+                      }
+  else if(resultado1 >= 16){
+    Serial.println("Voce esta: Palito");
+                      }
+  else{Serial.println("Voce esta: Cuidado pra nao voar com o vento");
+   
+                            }
+  }
+
+void loop()
+{
+  
+}
+*/
+
+#define pinLedVermelho1 13
+#define pinLedVermelho2 7
+#define tempoLed 200
+float temperatura = 31;
+float bateria = 28;
+void setup()
+{ Serial.begin(9600);
+ pinMode (pinLedVermelho1, OUTPUT);
+ pinMode (pinLedVermelho2, OUTPUT);
+ if (temperatura >= 30){digitalWrite(pinLedVermelho1, HIGH);
+                      }else{digitalWrite(pinLedVermelho1,LOW);
+                           }
+
+  }
+ 
+ void loop () {
+
+
+ if (bateria <=80 && bateria >=20){digitalWrite(pinLedVermelho2,HIGH);                                                                  
+ delay(tempoLed);digitalWrite(pinLedVermelho2,LOW);delay(tempoLed);
+ } else {digitalWrite(pinLedVermelho2,LOW);}
+                           
+
+
+
+
+
+ }

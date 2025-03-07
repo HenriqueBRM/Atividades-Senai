@@ -1,0 +1,56 @@
+// C++ code
+//
+//****Exercicio 4 ****//
+int valor=1023;
+int valorMap = map(valor, 0,1023,0,100);
+int valorConstrain = constrain(valorMap,20,80);
+#define ledVermelho2 12
+#define tempoLed 200
+//****Exercicio 3 ****//
+int numeroA= 156;
+int resultado = numeroA % 2;
+#define tempoLed 200
+#define ledVermelho1 13
+
+//****Exercicio 3 ****//
+void setup(){
+ pinMode(ledVermelho1,OUTPUT);
+ if (resultado ==0) {digitalWrite(ledVermelho1,HIGH);
+   }else {digitalWrite(ledVermelho1,LOW);}
+//****Exercicio 4 ****//
+Serial.begin(9600);
+pinMode(ledVermelho2,OUTPUT);
+Serial.println(valorConstrain);
+if (valorMap > 80) {
+  Serial.print("O valor ");
+  Serial.print(valorMap);
+  Serial.print(" excedeu os limites, valor reajustado para ");
+  Serial.print(valorConstrain);
+  digitalWrite(ledVermelho2, HIGH);
+  delay(tempoLed);
+  digitalWrite(ledVermelho2, LOW);
+  delay(tempoLed);
+} 
+else if (valorMap < 20) {
+  Serial.print("Valor reajustado para ");
+  Serial.print(valorConstrain);
+  digitalWrite(ledVermelho2, HIGH);
+  delay(tempoLed);
+  digitalWrite(ledVermelho2, LOW);
+
+} else {Serial.print("O valor eh ");}
+
+
+}
+ 
+
+void loop(){}  
+
+
+
+
+
+
+
+
+

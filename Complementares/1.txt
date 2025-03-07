@@ -1,0 +1,60 @@
+#define ledVerde 13
+#define ledAmarelo 12
+#define ledAzul 11
+#define ledBranco 10
+#define ledVermelho 9
+int variavel;
+
+void setup()
+{
+  pinMode(ledVerde, OUTPUT);
+  pinMode(ledAmarelo, OUTPUT);
+  pinMode(ledAzul, OUTPUT);
+  pinMode(ledBranco, OUTPUT);
+  pinMode(ledVermelho, OUTPUT);
+  
+  
+  Serial.begin(9600);
+  
+  
+  
+  
+}
+
+void loop()
+{
+  
+  variavel = random(1,7);
+    
+    
+  switch(variavel){
+  
+  case 1: digitalWrite(ledVerde, HIGH);delay(2000);digitalWrite(ledVerde, LOW);
+    digitalWrite(ledVerde, HIGH);delay(200);digitalWrite(ledVerde, LOW);delay(200);
+    digitalWrite(ledVerde, HIGH);delay(200);digitalWrite(ledVerde, LOW);delay(200);
+  break;
+  
+  case 2: digitalWrite(ledAmarelo, HIGH);delay(2000);digitalWrite(ledAmarelo, LOW);
+    digitalWrite(ledAmarelo, HIGH);delay(200);digitalWrite(ledAmarelo, LOW);delay(200);
+    digitalWrite(ledAmarelo, HIGH);delay(200);digitalWrite(ledAmarelo, LOW);delay(200);
+  break;
+    
+  case 3: digitalWrite(ledAzul, HIGH);delay(2000);digitalWrite(ledAzul, LOW);
+    digitalWrite(ledAzul, HIGH);delay(200);digitalWrite(ledAzul, LOW);delay(200);
+    digitalWrite(ledAzul, HIGH);delay(200);digitalWrite(ledAzul, LOW);delay(200);
+  break;
+  
+  case 4: digitalWrite(ledBranco, HIGH);delay(2000);digitalWrite(ledBranco, LOW);
+    digitalWrite(ledBranco, HIGH);delay(200);digitalWrite(ledVerde, LOW);delay(200);
+    digitalWrite(ledBranco, HIGH);delay(200);digitalWrite(ledVerde, LOW);delay(200);
+  break;
+    
+  case 5: digitalWrite(ledVermelho, HIGH);delay(2000);digitalWrite(ledVermelho, LOW);
+    digitalWrite(ledVermelho, HIGH);delay(200);digitalWrite(ledVermelho, LOW);delay(200);
+    digitalWrite(ledVermelho, HIGH);delay(200);digitalWrite(ledVermelho, LOW);delay(200);
+  break;
+    
+  default:Serial.println("Valor Invalido");
+  }
+  delay (2000);
+}

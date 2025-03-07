@@ -1,0 +1,36 @@
+// C++ code
+//****Exercicio 5 ****//
+int numero = -10000;
+
+//****Exercicio 6 ****//
+
+int salario = 900;
+int salarioReajustado=salario*1.1;
+
+//****Exercicio 7 ****//
+
+int salario2 = 450;
+int salarioIncrementado=salario2*1.3;
+
+
+void setup(){
+  Serial.begin(9600);
+  //****Exercicio 7 ****//
+   if (salario2<500){Serial.println(salarioIncrementado);
+                  }else{Serial.print("Voce nao tem direito a aumento");}
+  //****Exercicio 6 ****//
+if (salario<1000){Serial.println("Nome: Moracir jr");
+                  Serial.println("Cargo: Professor substituto");
+                  Serial.print("Salario reajustado: ");
+                  Serial.println(salarioReajustado);}
+  
+  //****Exercicio 5 ****//
+  if (numero>=0){Serial.println("O numero ");Serial.print(numero);Serial.print(" eh positivo");
+}else {Serial.print("O numero ");Serial.print(numero);Serial.print(" eh negativo");
+}
+}
+ void loop()
+ {
+ }
+ 
+ 
