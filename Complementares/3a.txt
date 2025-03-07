@@ -1,0 +1,46 @@
+#define ledVermelho 12
+#define ledAmarelo 10
+#define ledVerde 8
+unsigned long tempoAtual;
+unsigned long tempoInicial = 0;
+int fase;
+void setup()
+{
+  
+  pinMode(ledVermelho, OUTPUT);
+  pinMode(ledAmarelo,OUTPUT);
+  pinMode(ledVerde,OUTPUT);
+  
+  
+  
+}
+
+
+void loop()
+{ 
+  tempoAtual = millis();
+  fase = 1; 
+  
+  switch (fase){
+    
+  case 1: 
+    if(tempoAtual==tempoInicial){digitalWrite(ledVermelho,HIGH);
+                                 digitalWrite(ledAmarelo,LOW);
+                                             fase=2;break;}
+    
+  case 2:  
+    if (tempoAtual-tempoInicial==5000){digitalWrite(ledVermelho,LOW);
+                                       digitalWrite(ledVerde,HIGH);
+                                              fase=3;break;}
+    
+  case 3:  
+    if (tempoAtual-tempoInicial==8000){digitalWrite(ledVerde,LOW);
+                                       digitalWrite(ledAmarelo,HIGH);
+                                              fase=4;break;}
+    
+  default:  
+    if(tempoAtual-tempoInicial==10000){tempoInicial=tempoAtual;}
+                                               
+                                               
+  }    
+}

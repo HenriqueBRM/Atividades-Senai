@@ -1,0 +1,50 @@
+#define pinLedAmarelo 10
+#define pinLedVerde 8
+#define pinLedVermelho 12
+
+const int tempoVerde = 3000;
+const int tempoAmarelo = 2000;
+const int tempoVermelho = 5000;
+
+char faseSemaforo = 0;
+unsigned long tempoInicial = 0;
+
+void setup() {
+  pinMode(pinLedVermelho, OUTPUT);
+  pinMode(pinLedVerde, OUTPUT);
+  pinMode(pinLedAmarelo, OUTPUT);
+}
+
+void loop() {
+  unsigned long tempoAtual = millis();
+  
+  if (faseSemaforo == 0) {  
+    digitalWrite(pinLedAmarelo, LOW);
+    digitalWrite(pinLedVermelho, HIGH);
+    
+    if (tempoAtual - tempoInicial >= tempoVermelho) {
+      faseSemaforo = 1;
+      tempoInicial = tempoAtual;
+    }
+  }
+
+  if (faseSemaforo == 1) {  
+    digitalWrite(pinLedVermelho, LOW);
+    digitalWrite(pinLedVerde, HIGH);
+    
+    if (tempoAtual - tempoInicial >= tempoVerde) {
+      faseSemaforo = 2;
+      tempoInicial = tempoAtual;
+    }
+  }
+
+  if (faseSemaforo == 2) {  
+    digitalWrite(pinLedVerde, LOW);
+    digitalWrite(pinLedAmarelo, HIGH);
+
+    if (tempoAtual - tempoInicial >= tempoAmarelo) {
+      faseSemaforo = 0;
+      tempoInicial = tempoAtual;
+    }
+  }
+}
