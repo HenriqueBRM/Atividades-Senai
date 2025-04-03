@@ -1,0 +1,235 @@
+#include <Arduino.h>
+#include <LiquidCrystal_I2C.h>
+
+
+#define pinButton1 15
+#define pinButton2 5
+#define pinButton3 18
+#define pinLedVermelho 23
+
+
+LiquidCrystal_I2C lcd (0x27,20,4);
+
+void setup() 
+{
+Serial.begin(9600);
+lcd.init();
+lcd.backlight();
+
+pinMode(pinLedVermelho,OUTPUT);
+pinMode(pinButton1,INPUT_PULLUP);
+pinMode(pinButton2,INPUT_PULLUP);
+pinMode(pinButton3,INPUT_PULLUP);
+
+
+lcd.setCursor(2,0);
+lcd.print("Melhor Time");
+lcd.setCursor(2,1);
+lcd.print("Brasileiro");
+
+}
+
+void loop() 
+{
+
+static bool previousStateButton1=1;
+static bool previousStateButton2=1;
+static bool previousStateButton3=1;
+
+bool currentStateButton3=digitalRead(pinButton3);
+bool currentStateButton2=digitalRead(pinButton2);
+bool currentStateButton1=digitalRead(pinButton1);
+
+static bool lastAction1=1;
+static bool lastAction2=1;
+static bool lastAction3=1;
+
+static unsigned long previousTimeDebounce1=0;
+static unsigned long previousTimeDebounce2=0;
+static unsigned long previousTimeDebounce3=0;
+
+unsigned long currentTime=millis();
+const unsigned long debounceTime=50;
+static bool display=true;
+int posicao;
+int seta=3;
+//Tratamento do Botao 1 
+
+if(currentStateButton1!=previousStateButton1)
+{
+    previousTimeDebounce1=currentTime;
+}
+
+if((currentTime-previousTimeDebounce1)>debounceTime)
+{
+   if(currentStateButton1!=lastAction1)
+    {
+        lastAction1=currentStateButton1;
+          if(!currentStateButton1 and display==true)
+            {
+              posicao=1;
+              digitalWrite(pinLedVermelho,HIGH);
+              display=false;
+            }
+        else if(!currentStateButton1 and display==false)
+        {
+            posicao=0;
+            digitalWrite(pinLedVermelho,LOW);
+        }
+    }
+    
+  }          
+  previousStateButton1=currentStateButton1;
+
+
+
+  //Tratamento do Botao 2
+
+if(currentStateButton2!=previousStateButton2)
+{
+    previousTimeDebounce2=currentTime;
+}
+
+if((currentTime-previousTimeDebounce2)>debounceTime)
+{
+   if(currentStateButton2!=lastAction2)
+    {
+        lastAction2=currentStateButton2;
+          if(!currentStateButton2)
+            {
+              lcd.setCursor(0,1);
+              lcd.print(" ");
+              lcd.setCursor(0,2);
+              lcd.print(">");
+              digitalWrite(pinLedVermelho,HIGH);
+            }
+          else
+          {
+              
+          }
+    
+    }
+    
+  }          
+  previousStateButton2=currentStateButton2;
+
+//Tratamento do Botao 3
+
+if(currentStateButton3!=previousStateButton3)
+{
+    previousTimeDebounce3=currentTime;
+}
+
+if((currentTime-previousTimeDebounce3)>debounceTime)
+{
+   if(currentStateButton3!=lastAction2)
+    {
+        lastAction3=currentStateButton3;
+          if(!currentStateButton3)
+            {
+              lcd.setCursor(0,2);
+              lcd.print(" ");
+              lcd.setCursor(0,1);
+              lcd.print(">");
+              digitalWrite(pinLedVermelho,HIGH);
+            }
+          else
+          {
+            
+          }
+    
+    }
+    
+  }          
+  previousStateButton2=currentStateButton2;
+
+
+
+
+
+
+// Tratamento do lcd
+if(posicao==1)
+  {
+      lcd.setCursor(2,0);
+      lcd.print("                ");
+      lcd.setCursor(2,1);
+      lcd.print("                ");
+      lcd.setCursor(1,1);
+      lcd.print("Nacionalmente");
+      lcd.setCursor(1,2);
+      lcd.print("Internacionalmente"); 
+      
+  }
+
+if(posicao==0)
+{
+    lcd.setCursor(1,1);
+    lcd.print("             ");
+    lcd.setCursor(1,2);
+    lcd.print("         "); 
+    lcd.setCursor(2,0);
+    lcd.print(" Melhor Time do Brasil");
+    lcd.setCursor(1,1);
+    lcd.print("Corinthians");
+    lcd.setCursor(2,1);
+    lcd.print(" !!!!!!!!!!");
+
+
+
+
+}
+  if( posicao==1 && currentStateButton2 && !lastAction2)
+  {
+      lcd.setCursor(0,1);
+      lcd.print(" ");
+      lcd.setCursor(0,2);
+      lcd.print(">");
+  }
+
+if( seta==1 && currentStateButton3 && !lastAction3)
+ {
+    lcd.setCursor(0,2);
+    lcd.print(" ");
+    lcd.setCursor(0,1);
+    lcd.print(">");
+}
+
+
+  
+
+//! Rever o codigo dos if de posicao, o codigo do display e o botao 3.
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
